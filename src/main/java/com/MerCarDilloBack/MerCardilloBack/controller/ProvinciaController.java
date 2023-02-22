@@ -14,12 +14,12 @@ import com.MerCarDilloBack.MerCardilloBack.service.ProvinciaService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/api/mercardillo/provincias")
+@RequestMapping("/api/mercardillo/")
 public class ProvinciaController {
     @Autowired
     private ProvinciaService provinciaService;
 
-    @PostMapping(value = "", consumes="application/*" )
+    @PostMapping(value = "/provincia", consumes="application/*" )
     public ResponseEntity<?> create (@RequestBody Provincia provincia) {
         return ResponseEntity.status(HttpStatus.CREATED).body(provinciaService.save(provincia));
     }

@@ -14,12 +14,12 @@ import com.MerCarDilloBack.MerCardilloBack.service.TipoService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/api/mercardillo/Tipo")
+@RequestMapping("/api/mercardillo/")
 public class TipoController {
     @Autowired
     private TipoService tipoService;
 
-    @PostMapping(value = "", consumes="application/*" )
+    @PostMapping(value = "/tipo", consumes="application/*" )
     public ResponseEntity<?> create (@RequestBody TipoCoche tipoCoche) {
         return ResponseEntity.status(HttpStatus.CREATED).body(tipoService.save(tipoCoche));
     }

@@ -14,12 +14,12 @@ import com.MerCarDilloBack.MerCardilloBack.service.MarcaService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/api/mercardillo/marca")
+@RequestMapping("/api/mercardillo")
 public class MarcaController {
     @Autowired
     private MarcaService marcaService;
 
-    @PostMapping(value = "", consumes="application/*" )
+    @PostMapping(value = "/marca", consumes="application/*" )
     public ResponseEntity<?> create (@RequestBody MarcaCoche marca) {
         return ResponseEntity.status(HttpStatus.CREATED).body(marcaService.save(marca));
     }
