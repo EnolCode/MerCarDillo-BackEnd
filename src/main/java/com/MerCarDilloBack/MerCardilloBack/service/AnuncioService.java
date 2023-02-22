@@ -6,16 +6,16 @@ import java.util.Optional;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 
-import com.MerCarDilloBack.MerCardilloBack.entity.Anuncio;
+import com.MerCarDilloBack.MerCardilloBack.entity.AnuncioCoche;
 
 public interface AnuncioService {
-    public List<Anuncio> findAll();
+    public List<AnuncioCoche> findAll();
 
-    public Page<Anuncio> findAll(Pageable pageable);
+    public Page<AnuncioCoche> findAll(Pageable pageable);
 
-    public Optional<Anuncio> findById(Long id);
+    public Optional<AnuncioCoche> findById(Long id);
 
-    public Anuncio save(Anuncio anuncio);
+    public AnuncioCoche save(AnuncioCoche anuncio);
 
     public void deleteById(Long id);
 }

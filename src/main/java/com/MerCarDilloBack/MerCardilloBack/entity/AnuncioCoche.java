@@ -10,15 +10,15 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name="anuncios")
-public class Anuncio {
+@Table(name="anuncios_coche")
+public class AnuncioCoche {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Column(length = 50, nullable = true)
-    private String nombre;
+    private String nombre_cliente;
 
     @Column(length = 50, nullable = false)
     private String tipo;
