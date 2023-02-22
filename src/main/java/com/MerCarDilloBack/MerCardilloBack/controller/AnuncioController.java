@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.MerCarDilloBack.MerCardilloBack.entity.Anuncio;
+import com.MerCarDilloBack.MerCardilloBack.entity.AnuncioCoche;
 import com.MerCarDilloBack.MerCardilloBack.service.AnuncioService;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -17,13 +17,13 @@ public class AnuncioController {
     private AnuncioService anuncioService;
 
     @PostMapping(value = "", consumes="application/*" )
-    public ResponseEntity<?> create (@RequestBody Anuncio anuncio) {
+    public ResponseEntity<?> create (@RequestBody AnuncioCoche anuncio) {
         return ResponseEntity.status(HttpStatus.CREATED).body(anuncioService.save(anuncio));
     }
 
     @GetMapping("/{id}") 
     public ResponseEntity<?> read(@PathVariable Long id){
-        Optional<Anuncio> oAnuncio = anuncioService.findById(id);
+        Optional<AnuncioCoche> oAnuncio = anuncioService.findById(id);
         if(!oAnuncio.isPresent()){
             return ResponseEntity.notFound().build(); 
         }
@@ -40,7 +40,7 @@ public class AnuncioController {
     }
     
     @GetMapping
-    public List<Anuncio> readAll() {
+    public List<AnuncioCoche> readAll() {
         return anuncioService.findAll();        
     }
 }
