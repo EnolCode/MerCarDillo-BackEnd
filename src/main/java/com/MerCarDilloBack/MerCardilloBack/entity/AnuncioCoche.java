@@ -20,8 +20,6 @@ public class AnuncioCoche {
     @Column(length = 50, nullable = true)
     private String nombre;
 
-    @Column(length = 50, nullable = false)
-    private String tipo;
 
     @Column(length = 50, nullable = true)
     private Integer autonomia;
@@ -32,10 +30,16 @@ public class AnuncioCoche {
     @Column(length = 50, nullable = true)
     private Integer precio;
 
-    @Column(length = 50, nullable = true)
-    private String comunidad_autonoma;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tipo_id", nullable= true)
+    TipoCoche tipo;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "provincia_id", nullable= true)
+    Provincia provincia;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "marca_id", nullable= true)
-    Marca marca;
+    MarcaCoche marca;
 }

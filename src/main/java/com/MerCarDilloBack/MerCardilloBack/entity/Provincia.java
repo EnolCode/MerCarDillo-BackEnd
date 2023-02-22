@@ -11,17 +11,17 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name="marcas")
-public class Marca {
+@Table(name="provincias")
+public class Provincia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name="id_marca")
+    @Column (name="id_provincia")
     private Long id;
 
     @Column()
-    private String marca;
+    private String provincia;
 
-    @OneToMany(mappedBy = "marca", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "provincia", cascade = CascadeType.ALL)
     private List<AnuncioCoche> anunciosCoches;
 }
