@@ -7,28 +7,27 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import com.MerCarDilloBack.MerCardilloBack.entity.MarcaCoche;
-import com.MerCarDilloBack.MerCardilloBack.repository.MarcaRepository;
+import com.MerCarDilloBack.MerCardilloBack.entity.Provincia;
+import com.MerCarDilloBack.MerCardilloBack.repository.ProvinciaRepository;
 
 @ExtendWith(MockitoExtension.class)
-public class MarcaServiceImplTest {
+public class ProvinciaServiceImplTest {
 
     @Mock
-    private MarcaRepository repository;
+    private ProvinciaRepository repository;
 
     @InjectMocks
-    private MarcaServiceImpl service;
+    private ProvinciaServiceImpl service;
 
     @Test
     public void testFindAll() {
         // Given
-        MarcaCoche tipo1 = new MarcaCoche("Ferrari");
-        tipo1.setMarca("Ford");
+        Provincia tipo1 = new Provincia("Asturias");
+        tipo1.setProvincia("Madrid");
 
-        List<MarcaCoche> result = service.findAll();
+        List<Provincia> result = service.findAll();
         result.add(tipo1);
 
-        assertEquals("Ford",result.get(0).getMarca());
+        assertEquals("Madrid",result.get(0).getProvincia());
     }
 }
