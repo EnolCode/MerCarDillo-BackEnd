@@ -17,6 +17,11 @@ public class AnuncioCoche {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    public AnuncioCoche(String nombre) {
+        this.nombre = nombre;
+    }
+
+
     @Column(length = 50, nullable = true)
     private String nombre;
 

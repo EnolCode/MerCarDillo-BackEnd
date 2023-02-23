@@ -13,32 +13,33 @@ import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.MerCarDilloBack.MerCardilloBack.entity.TipoCoche;
-import com.MerCarDilloBack.MerCardilloBack.service.TipoService;
+import com.MerCarDilloBack.MerCardilloBack.entity.Provincia;
+import com.MerCarDilloBack.MerCardilloBack.service.ProvinciaService;
 
-@WebMvcTest(controllers = TipoController.class)
-public class TipoControllerTest {
+@WebMvcTest(controllers = ProvinciaController.class)
+public class ProvinciaControllerTest {
+
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private TipoService service;
+    private ProvinciaService service;
 
     @Test
     void test_findAll_return_all_tipos() throws Exception{
 
-        List<TipoCoche> tipos = new ArrayList<>();
-        TipoCoche deportivo = new TipoCoche("Deportivo");
-        tipos.add(deportivo);
+        List<Provincia> provincias = new ArrayList<>();
+        Provincia asturias = new Provincia("Asturias");
+        provincias.add(asturias);
 
-        when(service.findAll()).thenReturn(tipos);
+        when(service.findAll()).thenReturn(provincias);
 
-        MockHttpServletResponse response = mockMvc.perform(get("/api/mercardillo/tipos").contentType("application/json"))
+        MockHttpServletResponse response = mockMvc.perform(get("/api/mercardillo/provincias").contentType("application/json"))
                 .andExpect(status().isOk())
                 .andReturn()
                 .getResponse();
 
         assertEquals(200, response.getStatus());
-        assertEquals(true,response.getContentAsString().contains("Deportivo"));
+        assertEquals(true,response.getContentAsString().contains("Asturias"));
     }
 }

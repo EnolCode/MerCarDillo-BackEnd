@@ -42,7 +42,7 @@ public class ProvinciaController {
         return ResponseEntity.ok().build();
     }
     
-    @GetMapping("/Provincias")
+    @GetMapping("/provincias")
     public List<Provincia> readAll() {
         return provinciaService.findAll();        
     }
