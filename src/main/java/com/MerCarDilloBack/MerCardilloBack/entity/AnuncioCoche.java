@@ -10,21 +10,20 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name="anuncios_coche")
+@Table(name="anunciosCoches")
 public class AnuncioCoche {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    public AnuncioCoche(String nombre) {
+        this.nombre_cliente = nombre;
+    }
+
     @Column(length = 50, nullable = true)
     private String nombre_cliente;
 
-    @Column(length = 50, nullable = false)
-    private String tipo;
-
-    @Column(length = 50, nullable = false)
-    private String marca;
 
     @Column(length = 50, nullable = true)
     private Integer autonomia;
@@ -35,7 +34,16 @@ public class AnuncioCoche {
     @Column(length = 50, nullable = true)
     private Integer precio;
 
-    @Column(length = 50, nullable = true)
-    private String comunidad_autonoma;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tipo_id", nullable= true)
+    TipoCoche tipo;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "provincia_id", nullable= true)
+    Provincia provincia;
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "marca_id", nullable= true)
+    MarcaCoche marca;
 }

@@ -39,7 +39,7 @@ public class AnuncioController {
         return ResponseEntity.ok().build();
     }
     
-    @GetMapping
+    @GetMapping("/anuncios")
     public List<AnuncioCoche> readAll() {
         return anuncioService.findAll();        
     }
