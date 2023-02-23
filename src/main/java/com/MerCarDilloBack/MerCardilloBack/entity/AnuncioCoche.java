@@ -21,7 +21,6 @@ public class AnuncioCoche {
         this.nombre = nombre;
     }
 
-
     @Column(length = 50, nullable = true)
     private String nombre;
 
