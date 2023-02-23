@@ -22,12 +22,13 @@ public class ProvinciaServiceImplTest {
     @Test
     public void testFindAll() {
         // Given
-        Provincia tipo1 = new Provincia("Asturias");
-        tipo1.setProvincia("Madrid");
+        Provincia provincia = new Provincia("Asturias");
+        provincia.setProvincia("Madrid");
 
         List<Provincia> result = service.findAll();
-        result.add(tipo1);
+        result.add(provincia);
 
         assertEquals("Madrid",result.get(0).getProvincia());
     }
+
 }

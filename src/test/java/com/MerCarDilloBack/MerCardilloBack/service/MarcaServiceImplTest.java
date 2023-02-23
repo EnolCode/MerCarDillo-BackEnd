@@ -23,11 +23,11 @@ public class MarcaServiceImplTest {
     @Test
     public void testFindAll() {
         // Given
-        MarcaCoche tipo1 = new MarcaCoche("Ferrari");
-        tipo1.setMarca("Ford");
+        MarcaCoche marca = new MarcaCoche("Ferrari");
+        marca.setMarca("Ford");
 
         List<MarcaCoche> result = service.findAll();
-        result.add(tipo1);
+        result.add(marca);
 
         assertEquals("Ford",result.get(0).getMarca());
     }
