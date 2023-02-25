@@ -17,7 +17,7 @@ public class TipoCoche {
     private Long idTipo;
 
     @Column()
-    private String tipo;
+    private String  tipo;
 
     public TipoCoche() {
     }

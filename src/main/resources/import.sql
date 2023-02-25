@@ -20,7 +20,7 @@ INSERT INTO anuncios_coches (id,asientos,autonomia,nombre_cliente,precio) VALUES
 
 
 
-UPDATE anuncios_coches SET tipo_id = 1
+UPDATE anuncios_coches SET tipo_id = 2
 UPDATE anuncios_coches SET marca_id = 1
 UPDATE anuncios_coches SET provincia_id = 2
 
